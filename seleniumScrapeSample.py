@@ -67,7 +67,9 @@ for i in range(int(per)):
         next = chrome.find_element_by_css_selector("#navcnt table td.cur + td a")
         next.click()
     except:
-        chrome.close()
+        print('エラーが発生しました。')
+
+    chrome.close()
 
     # 5秒間スリープ
     time.sleep(5)
