@@ -83,13 +83,16 @@ class Scrape:
 
     # CSV出力処理
     def output(self):
-        with open('[' + self.keyword + ']google_search_result.csv', 'w', newline='', encoding='CP932', errors='replace') as f:
-            writer = csv.writer(f)
-            writer.writerow(['検索キーワード:{0}'.format(self.keyword), 'サイト内検索キーワード:{0}'.format(self.search_keyword)])
-            writer.writerows([self.rank])
-            writer.writerows([self.result_title])
-            writer.writerows([self.result_url])
-            writer.writerows([self.search_words_count])
+        try:
+            with open('[' + self.keyword + ']google_search_result.csv', 'w', newline='', encoding='CP932', errors='replace') as f:
+                writer = csv.writer(f)
+                writer.writerow(['検索キーワード:{0}'.format(self.keyword), 'サイト内検索キーワード:{0}'.format(self.search_keyword)])
+                writer.writerows([self.rank])
+                writer.writerows([self.result_title])
+                writer.writerows([self.result_url])
+                writer.writerows([self.search_words_count])
+        except:
+          print('CSV出力エラー')
 
 # 検索キーワード・サイト内検索キーサイト・取得ページ数入力
 keyword = input("検索キーワード入力：")
