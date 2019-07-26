@@ -69,10 +69,10 @@ for i in range(int(per)):
     except:
         print('エラーが発生しました。')
 
-    chrome.close()
-
     # 5秒間スリープ
     time.sleep(5)
+
+chrome.close()
 
 # 検索結果をCSV出力
 with open('[' + keyword + ']google_search_result.csv', 'w', newline='', encoding='CP932', errors='replace') as f:
